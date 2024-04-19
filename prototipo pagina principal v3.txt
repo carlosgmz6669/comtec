@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+ pagina de inicio--PRINCIPAL V3
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://images.unsplash.com/photo-1500964757637-c85e8a162699') center/cover fixed; /* Imagen de fondo */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Hace que la página ocupe toda la altura del viewport */
+        }
+
+        #logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 40px; /* Mover el logo hacia abajo */
+        }
+
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+            max-width: 400px; /* Limita el ancho del contenedor de botones */
+        }
+
+        .button {
+            border: none;
+            color: white;
+            padding: 20px; /* Reducir el espacio interior de los botones */
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 10px;
+            width: 100%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        /* Colores de los botones */
+        .catalogo { background-color: #4CAF50; }
+        .bajas { background-color: #2196F3; }
+        .mantenimientos { background-color: #9C27B0; }
+        .danos { background-color: #FF5722; }
+        .altas { background-color: #FF9800; }
+
+        /* Estilos al pasar el mouse sobre los botones */
+        .button:hover { 
+            opacity: 0.9; 
+            transform: scale(1.05); 
+        }
+    </style>
+</head>
+<body>
+    <img id="logo" src="https://1.bp.blogspot.com/-Ls43Ivl0Us8/UcY3sKypX4I/AAAAAAAAADU/DNRDJXJP69Y/s1600/itc.jpg" alt="Logo">
+    <div class="button-container">
+        <a href="#" class="button catalogo">Catálogo de Equipos</a>
+        <a href="#" class="button bajas">Bajas</a>
+        <a href="#" class="button mantenimientos">Mantenimientos</a>
+        <a href="#" class="button danos">Daños</a>
+        <a href="#" class="button altas">Altas</a>
+        <!-- Agrega más botones si es necesario -->
+    </div>
+</body>
+</html>

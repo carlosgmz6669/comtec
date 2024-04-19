@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Mantenimiento - COMTEC</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #87CEEB, #4682B4);
+            color: #800080; /* Morado */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            width: 80%;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        select,
+        input[type="date"],
+        input[type="file"],
+        textarea {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #4682B4;
+            background-color: #fff;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-group label {
+            margin-right: 20px;
+        }
+
+        input[type="submit"] {
+            background-color: #800080; /* Morado */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #9370DB; /* Morado más claro al pasar el mouse */
+        }
+
+        @media screen and (max-width: 600px) {
+            form {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <form action="procesar_mantenimiento.php" method="post" enctype="multipart/form-data">
+        <h2>Formulario de Mantenimiento - COMTEC</h2>
+        <label for="computerID">ID de la Computadora:</label>
+        <input type="text" id="computerID" name="computerID" required>
+
+        <label for="maintenanceType">Tipo de Mantenimiento:</label>
+        <select id="maintenanceType" name="maintenanceType" required>
+            <option value="Preventivo">Preventivo</option>
+            <option value="Correctivo">Correctivo</option>
+            <option value="Predictivo">Predictivo</option>
+            <option value="Otros">Otros</option>
+        </select>
+
+        <label for="maintenanceDate">Fecha de Mantenimiento:</label>
+        <input type="date" id="maintenanceDate" name="maintenanceDate" required>
+
+        <label for="maintenanceTechnician">Técnico a Cargo:</label>
+        <input type="text" id="maintenanceTechnician" name="maintenanceTechnician">
+
+        <label for="maintenanceCost">Costo de Mantenimiento (USD):</label>
+        <input type="text" id="maintenanceCost" name="maintenanceCost">
+
+        <label for="maintenanceDescription">Descripción del Mantenimiento:</label>
+        <textarea id="maintenanceDescription" name="maintenanceDescription" rows="4"></textarea>
+
+        <label>Seleccionar Piezas Reemplazadas:</label>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="replacementParts[]" value="Tarjeta Madre"> Tarjeta Madre</label>
+            <label><input type="checkbox" name="replacementParts[]" value="Procesador"> Procesador</label>
+            <label><input type="checkbox" name="replacementParts[]" value="Memoria RAM"> Memoria RAM</label>
+            <label><input type="checkbox" name="replacementParts[]" value="Disco Duro"> Disco Duro</label>
+            <label><input type="checkbox" name="replacementParts[]" value="Fuente de Poder"> Fuente de Poder</label>
+            <label><input type="checkbox" name="replacementParts[]" value="Ventilador/Cooler"> Ventilador/Cooler</label>
+            <label><input type="checkbox" name="replacementParts[]" value="Tarjeta Gráfica"> Tarjeta Gráfica</label>
+            <label><input type="checkbox" name="replacementParts[]" value="Teclado"> Teclado</label>
+            <label><input type="checkbox" name="replacementParts[]" value="Mouse"> Mouse</label>
+            <label><input type="checkbox" name="replacementParts[]" value="Pantalla"> Pantalla</label>
+            <label><input type="checkbox" name="replacementParts[]" value="Otro"> Otro</label>
+        </div>
+
+        <label for="maintenanceResult">Resultado del Mantenimiento:</label>
+        <textarea id="maintenanceResult" name="maintenanceResult" rows="4"></textarea>
+
+        <label for="maintenanceNotes">Notas Adicionales:</label>
+        <textarea id="maintenanceNotes" name="maintenanceNotes" rows="4"></textarea>
+
+        <label for="computerImage">Foto del Equipo:</label>
+        <input type="file" id="computerImage" name="computerImage">
+
+        <input type="submit" value="Enviar Solicitud">
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,200 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMTEC</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #87CEEB, #4682B4);
+            color: #333;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #container {
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            text-align: center;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #FFD700; /* Amarillo */
+        }
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #800080; /* Morado */
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+        input[type="text"], input[type="date"], select, input[type="file"] {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #4682B4;
+            background-color: #fff;
+            color: #333;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #FFD700; /* Amarillo */
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #FFEC8B; /* Amarillo más claro al pasar el mouse */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #4682B4;
+            padding: 8px;
+            text-align: left;
+            color: #fff;
+        }
+        th {
+            background-color: #87CEEB;
+        }
+        tr:nth-child(even) {
+            background-color: #4682B4;
+        }
+        tr:hover {
+            background-color: #6495ED;
+        }
+        .computer-image {
+            max-width: 100px;
+            max-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>COMTEC</h1>
+        <form id="addComputerForm">
+            <label for="computerName">Nombre del equipo:</label>
+            <input type="text" id="computerName" name="computerName" required><br>
+
+            <label for="computerBrand">Marca:</label>
+            <input type="text" id="computerBrand" name="computerBrand" required><br>
+
+            <label for="computerModel">Modelo:</label>
+            <input type="text" id="computerModel" name="computerModel" required><br>
+
+            <label for="entryDate">Fecha de ingreso:</label>
+            <input type="date" id="entryDate" name="entryDate" required><br>
+
+            <label for="computerStatus">Estado:</label>
+            <select id="computerStatus" name="computerStatus" required>
+                <option value="Dañado">Dañado</option>
+                <option value="En Mantenimiento">En Mantenimiento</option>
+                <option value="Buen Estado">Buen Estado</option>
+            </select><br>
+
+            <label for="lastMaintenanceDate">Fecha de último mantenimiento:</label>
+            <input type="date" id="lastMaintenanceDate" name="lastMaintenanceDate" required><br>
+
+            <label for="computerRAM">RAM:</label>
+            <input type="text" id="computerRAM" name="computerRAM" required><br>
+
+            <label for="computerStorage">Almacenamiento:</label>
+            <select id="computerStorage" name="computerStorage" required>
+                <option value="300gb">300GB</option>
+                <option value="1tb">1TB</option>
+                <option value="4tb">4TB</option>
+            </select><br>
+
+            <label for="computerProcessor">Procesador:</label>
+            <select id="computerProcessor" name="computerProcessor" required>
+                <option value="Intel Core i5">Intel Core i5</option>
+                <option value="AMD Ryzen 7">AMD Ryzen 7</option>
+                <option value="Apple M1">Apple M1</option>
+            </select><br>
+
+            <label for="computerImage">Imagen del equipo:</label>
+            <input type="file" id="computerImage" name="computerImage"><br>
+
+            <input type="submit" value="Agregar Computadora">
+        </form>
+        <h2>Inventario de Computadoras</h2>
+        <table id="computerTable">
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Nombre del Equipo</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Fecha de Ingreso</th>
+                    <th>Estado</th>
+                    <th>Último Mantenimiento</th>
+                    <th>RAM</th>
+                    <th>Almacenamiento</th>
+                    <th>Procesador</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se cargarán las computadoras -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Manejar el envío del formulario para agregar una nueva computadora a la tabla
+        document.getElementById("addComputerForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Evitar que el formulario se envíe normalmente
+
+            // Obtener los valores del formulario
+            var computerName = document.getElementById("computerName").value;
+            var computerBrand = document.getElementById("computerBrand").value;
+            var computerModel = document.getElementById("computerModel").value;
+            var entryDate = document.getElementById("entryDate").value;
+            var computerStatus = document.getElementById("computerStatus").value;
+            var lastMaintenanceDate = document.getElementById("lastMaintenanceDate").value;
+            var computerRAM = document.getElementById("computerRAM").value;
+            var computerStorage = document.getElementById("computerStorage").value;
+            var computerProcessor = document.getElementById("computerProcessor").value;
+
+            // Crear una nueva fila en la tabla con los datos del formulario
+            var newRow = document.createElement("tr");
+            newRow.innerHTML = `
+                <td><img src="" alt="Imagen de la computadora" class="computer-image"></td>
+                <td>${computerName}</td>
+                <td>${computerBrand}</td>
+                <td>${computerModel}</td>
+                <td>${entryDate}</td>
+                <td>${computerStatus}</td>
+                <td>${lastMaintenanceDate}</td>
+                <td>${computerRAM}</td>
+                <td>${computerStorage}</td>
+                <td>${computerProcessor}</td>
+            `;
+
+            // Agregar la nueva fila a la tabla
+            document.querySelector("#computerTable tbody").appendChild(newRow);
+
+            // Limpiar los campos del formulario después de agregar la computadora
+            document.getElementById("addComputerForm").reset();
+        });
+    </script>
+</body>
+</html>
